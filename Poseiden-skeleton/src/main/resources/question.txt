@@ -1,0 +1,3 @@
+log info et error sur les catch different niveau avec les donnée qui transite de dans pour log.info
+log.debug
+javadoc

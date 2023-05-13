@@ -60,6 +60,16 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.tinylog</groupId>
+			<artifactId>tinylog-impl</artifactId>
+			<version>2.3.1</version> <!-- Vérifiez la dernière version sur le site de TinyLog -->
+		</dependency>
+		<dependency>
+			<groupId>org.tinylog</groupId>
+			<artifactId>tinylog-api</artifactId>
+			<version>2.3.1</version> <!-- Vérifiez la dernière version sur le site de TinyLog -->
+		</dependency>
 	</dependencies>
 
 	<build>
