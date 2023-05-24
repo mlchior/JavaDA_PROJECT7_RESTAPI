@@ -10,24 +10,19 @@ import java.sql.Timestamp;
 public class BidList {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer BidListId;
 
-    @NotBlank
     private String account;
 
     private String type;
 
-    @Digits(integer=14, fraction=2)
     private Double bidQuantity;
 
-    @Digits(integer=14, fraction=2)
     private Double askQuantity;
 
-    @Digits(integer=14, fraction=2)
     private Double bid;
 
-    @Digits(integer=14, fraction=2)
     private Double ask;
 
     private String benchmark;
