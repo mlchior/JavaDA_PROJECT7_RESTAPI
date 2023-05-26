@@ -1,7 +1,9 @@
 package com.nnk.springboot.services;
 
 import com.nnk.springboot.domain.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface UserService {
     public void delete(Integer id);
 
@@ -12,4 +14,5 @@ public interface UserService {
     public User updateUser(Integer id, User user);
 
     public User getUserByUsername(String username);
+
 }

@@ -17,6 +17,25 @@
 			<!--
 			TODO: Create a form to edit the values of Bid, there are 2 buttons: Update data and Cancel to the list Bid
 			 -->
+			<div class="form-group">
+					<label for="bidListId">Bid List Id</label>
+					<input type="text" th:field="*{bidListId}" id="bidListId" class="form-control" readonly />
+				</div>
+				<div class="form-group">
+					<label for="account">Account</label>
+					<input type="text" th:field="*{account}" id="account" class="form-control"/>
+				</div>
+				<div class="form-group">
+					<label for="type">Type</label>
+					<input type="text" th:field="*{type}" id="type" class="form-control"/>
+				</div>
+				<div class="form-group">
+					<label for="bidQuantity">Bid Quantity</label>
+					<input type="text" th:field="*{bidQuantity}" id="bidQuantity" class="form-control"/>
+				</div>
+				<button type="submit" class="btn btn-primary">Update Data</button>
+				<a href="/bidList/list" class="btn btn-secondary">Cancel</a>
+			</form>
 		</form>
 	</div>
 

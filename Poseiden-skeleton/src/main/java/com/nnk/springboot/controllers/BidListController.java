@@ -2,6 +2,7 @@ package com.nnk.springboot.controllers;
 
 import com.nnk.springboot.domain.BidList;
 import com.nnk.springboot.services.BidListService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,14 +18,19 @@ import java.util.List;
 @Controller
 public class BidListController {
 
-    private BidListService bidListService;
+    private final BidListService bidListService;
+
+    @Autowired
+    public BidListController(BidListService bidListService) {
+        this.bidListService = bidListService;
+    }
 
     @RequestMapping("/bidList/list")
     public String home(Model model)
     {
         // TODO: call service find all bids to show to the view
         List<BidList> bidList = bidListService.getAllBids();
-        model.addAttribute("bidList", bidList);
+        model.addAttribute("bidLists", bidList);
         return "bidList/list";
     }
 
@@ -40,8 +46,9 @@ public class BidListController {
             return "bidList/add";
         }
         bidListService.saveBid(bid);
-        return "bidList/add";
+        return "redirect:/bidList/list";
     }
+
 
     @GetMapping("/bidList/update/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model model) {

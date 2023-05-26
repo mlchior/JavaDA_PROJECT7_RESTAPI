@@ -1,6 +1,7 @@
 package com.nnk.springboot.controllers;
 import com.nnk.springboot.services.TradeService;
 import com.nnk.springboot.domain.Trade;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,7 +17,13 @@ import java.util.List;
 public class TradeController {
     // TODO: Inject Trade service
 
-        private TradeService tradeService;
+    private final TradeService tradeService;
+
+    @Autowired
+    public TradeController(TradeService tradeService) {
+        this.tradeService = tradeService;
+    }
+
 
 
     @RequestMapping("/trade/list")

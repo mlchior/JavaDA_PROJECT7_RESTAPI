@@ -33,6 +33,10 @@ public class CurvePoint {
         this.value = v1;
     }
 
+    public CurvePoint() {
+
+    }
+
     public Integer getId() {
         return id;
     }

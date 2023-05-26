@@ -3,17 +3,17 @@ package com.nnk.springboot.services;
 import com.nnk.springboot.domain.User;
 import com.nnk.springboot.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class userServiceImpl  implements UserService{
 
     private UserRepository userRepository;
-
     @Autowired
-    public userServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public void delete(Integer id) {
@@ -45,4 +45,6 @@ public class userServiceImpl  implements UserService{
     public User getUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
+
+
 }

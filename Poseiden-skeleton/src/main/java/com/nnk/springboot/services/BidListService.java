@@ -1,12 +1,13 @@
 package com.nnk.springboot.services;
 
 import com.nnk.springboot.domain.BidList;
+import org.springframework.stereotype.Service;
 //tinyLog
 
 
 import java.util.List;
 
-
+@Service
 public interface BidListService {
 
 
