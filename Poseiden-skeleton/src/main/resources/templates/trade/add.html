@@ -14,11 +14,30 @@
 	</div>
 
 	<div class="row">
-		<form action="#" th:action="@{/trade/validate}" th:object="${trade}" method="post" class="form-horizontal" style="width: 100%">
+		<form action="#" th:action="@{/trade/validate}" th:object="${trade}" method="post" class="form-horizontal" style=" width: 100%">
 			<!--
 			TODO: Create a form to input the values of Trade, there are 2 buttons: Save data and Cancel to the list Trade
 			 -->
-
+			<div class="form-group">
+				<label for="tradeId">Id:</label>
+				<input type="text" id="tradeId" th:field="*{tradeId}" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<label for="account">Account:</label>
+				<input type="text" id="account" th:field="*{account}" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<label for="type">Type:</label>
+				<input type="text" id="type" th:field="*{type}" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<label for="buyQuantity">Buy Quantity:</label>
+				<input type="text" id="buyQuantity" th:field="*{buyQuantity}" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Save" class="btn btn-primary" />
+				<a href="/trade/list" class="btn btn-default">Cancel</a>
+			</div>
 		</form>
 	</div>
 

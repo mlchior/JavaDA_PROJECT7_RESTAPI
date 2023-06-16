@@ -17,6 +17,26 @@
 			<!--
 			TODO: Create a form to edit the values of Trade, there are 2 buttons: Update data and Cancel to the Trade List
 			 -->
+			<div class="form-group">
+				<label for="tradeId">Id:</label>
+				<input type="text" id="tradeId" th:field="*{tradeId}" class="form-control" readonly />
+			</div>
+			<div class="form-group">
+				<label for="account">Account:</label>
+				<input type="text" id="account" th:field="*{account}" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<label for="type">Type:</label>
+				<input type="text" id="type" th:field="*{type}" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<label for="buyQuantity">Buy Quantity:</label>
+				<input type="number" id="buyQuantity" th:field="*{buyQuantity}" class="form-control" required />
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Update" class="btn btn-primary" />
+				<a href="/trade/list" class="btn btn-default">Cancel</a>
+			</div>
 		</form>
 	</div>
 

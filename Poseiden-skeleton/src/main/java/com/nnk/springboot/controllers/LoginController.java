@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.tinylog.Logger;
 
 @Controller
 @RequestMapping("app")
@@ -16,6 +17,7 @@ public class LoginController {
 
     @GetMapping("login")
     public ModelAndView login() {
+        Logger.info("Login view displayed");
         ModelAndView mav = new ModelAndView();
         mav.setViewName("login");
         return mav;
@@ -23,6 +25,7 @@ public class LoginController {
 
     @GetMapping("secure/article-details")
     public ModelAndView getAllUserArticles() {
+        Logger.info("Getting all user articles");
         ModelAndView mav = new ModelAndView();
         mav.addObject("users", userRepository.findAll());
         mav.setViewName("user/list");
@@ -31,6 +34,7 @@ public class LoginController {
 
     @GetMapping("error")
     public ModelAndView error() {
+        Logger.warn("Error page accessed");
         ModelAndView mav = new ModelAndView();
         String errorMessage= "You are not authorized for the requested data.";
         mav.addObject("errorMsg", errorMessage);

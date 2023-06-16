@@ -21,14 +21,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
     private final CustomUserDetailsService customUserDetailsService;
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/bidList/**", "/rating/**", "/ruleName/**", "/trade/**", "/curvePoint/**", "/user/**", "/api/**").hasAnyAuthority("ADMIN", "USER")
-                .antMatchers("/bidList/**", "/rating/**", "/ruleName/**", "/trade/**", "/curvePoint/**", "/user/**", "/api/**").hasAuthority("ADMIN")
+                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/bidList/**", "/rating/**", "/ruleName/**", "/trade/**", "/curvePoint/**", "/api/**").hasAnyAuthority("ADMIN", "USER")
+                .antMatchers("/user/list/**").hasAuthority("ADMIN")
                 .antMatchers("/login", "/app/login", "/app/secure/article-details").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -40,7 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login")
                 .and()
                 .exceptionHandling();
+                http.exceptionHandling().accessDeniedPage("/403");
     }
+
 
     public SecurityConfig(CustomUserDetailsService customUserDetailsService) {
         this.customUserDetailsService = customUserDetailsService;
@@ -63,5 +65,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(this.authProvider());
     }
 
-
 }
+
+
+// package com.nnk.springboot.conf
+

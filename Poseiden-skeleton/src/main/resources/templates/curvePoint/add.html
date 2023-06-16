@@ -18,8 +18,21 @@
 			<!--
 			TODO: Create a form to input the values of CurvePoint, there are 2 buttons: Save data and Cancel to the list CurvePoint
 			 -->
-
-		</form>
+				<div class="form-group">
+					<label>Curve Id</label>
+					<input type="number" th:field="*{curveId}" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label>Term</label>
+					<input type="number" th:field="*{term}" class="form-control" step="0.01" required>
+				</div>
+				<div class="form-group">
+					<label>Value</label>
+					<input type="number" th:field="*{value}" class="form-control" step="0.01" required>
+				</div>
+				<button type="submit" class="btn btn-primary">Save</button>
+				<a href="/curvePoint/list" class="btn btn-danger">Cancel</a>
+			</form>
 	</div>
 
 </div>

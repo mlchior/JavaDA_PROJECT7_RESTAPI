@@ -18,6 +18,37 @@
 			<!--
 			TODO: Create a form to input the values of Rating, there are 2 buttons: Save data and Cancel to the list Rating
 			 -->
+			<!-- Field for Moodys Rating -->
+			<div class="form-group">
+				<label>Moodys Rating</label>
+				<input type="text" th:field="*{moodysRating}" class="form-control" required>
+			</div>
+
+			<!-- Field for S&P Rating -->
+			<div class="form-group">
+				<label>S&P Rating</label>
+				<input type="text" th:field="*{sandPRating}" class="form-control" required>
+			</div>
+
+			<!-- Field for Fitch Rating -->
+			<div class="form-group">
+				<label>Fitch Rating</label>
+				<input type="text" th:field="*{fitchRating}" class="form-control" required>
+				<!-- only accept number -->
+
+			</div>
+
+			<!-- Field for Order Number -->
+			<div class="form-group">
+				<label>Order Number</label>
+				<input type="number" th:field="*{orderNumber}" class="form-control" required>
+			</div>
+
+			<!-- Save and Cancel buttons -->
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Save</button>
+				<a th:href="@{/rating/list}" class="btn btn-danger">Cancel</a>
+			</div>
 
 		</form>
 	</div>
