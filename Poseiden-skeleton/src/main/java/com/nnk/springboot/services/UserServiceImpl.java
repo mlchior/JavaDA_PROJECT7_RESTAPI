@@ -6,11 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class userServiceImpl  implements UserService{
+public class UserServiceImpl implements UserService {
 
+    @Autowired
     private UserRepository userRepository;
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -24,6 +23,7 @@ public class userServiceImpl  implements UserService{
     public User getUserById(Integer id) {
         return userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user id: " + id));
     }
+
     @Override
     public User saveUser(User user) {
         return userRepository.save(user);
@@ -32,19 +32,23 @@ public class userServiceImpl  implements UserService{
     @Override
     public User updateUser(Integer id, User user) {
         User existingUser = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user id: " + id));
-        if(existingUser != null){
+        if (existingUser != null) {
             existingUser.setUsername(user.getUsername());
-            existingUser.setPassword(user.getPassword());
+            existingUser.setPassword(passwordEncoder.encode(user.getPassword()));
             existingUser.setFullname(user.getFullname());
             existingUser.setRole(user.getRole());
             return userRepository.save(existingUser);
         }
         return null;
     }
+
     @Override
     public User getUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
 
+
+
 }
+

@@ -65,6 +65,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(this.authProvider());
     }
 
+    // verification of the password
+
 }
 
 

@@ -22,7 +22,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<spring.version>2.7.8</spring.version>
 		<mysql-connector-java.version>8.0.32</mysql-connector-java.version>
 		<hibernate-validator.version>6.2.5.Final</hibernate-validator.version>
 		<junit-jupiter.version>5.9.2</junit-jupiter.version>
@@ -98,18 +97,6 @@
 			<version>${junit-jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.junit.vintage</groupId>
-			<artifactId>junit-vintage-engine</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.hamcrest</groupId>
-					<artifactId>hamcrest-core</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
 		<dependency>
 			<groupId>org.junit.platform</groupId>
 			<artifactId>junit-platform-runner</artifactId>
