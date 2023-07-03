@@ -1,6 +1,7 @@
 package com.nnk.springboot.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
 
@@ -15,13 +16,13 @@ public class Trade {
     private String account;
 
     private String type;
-
+    @Digits(integer = 10, fraction = 2, message = "Buy Quantity must be a number")
     private Double buyQuantity;
-
+    @Digits(integer = 10, fraction = 0, message = "Sell Quantity must be a number")
     private Double sellQuantity;
-
+    @Digits(integer = 10, fraction = 2, message = "Buy Price must be a number")
     private Double buyPrice;
-
+    @Digits(integer = 10, fraction = 2, message = "Sell Price must be a number")
     private Double sellPrice;
 
     private String benchmark;

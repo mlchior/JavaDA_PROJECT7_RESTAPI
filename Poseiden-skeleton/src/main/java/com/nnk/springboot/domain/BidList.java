@@ -16,9 +16,9 @@ public class BidList {
     private String account;
 
     private String type;
-
+    @Digits(integer = 10, fraction = 0, message = "Bid Quantity must be a number")
     private Double bidQuantity;
-
+    @Digits(integer = 10, fraction = 0, message = "Ask Quantity must be a number")
     private Double askQuantity;
 
     private Double bid;
