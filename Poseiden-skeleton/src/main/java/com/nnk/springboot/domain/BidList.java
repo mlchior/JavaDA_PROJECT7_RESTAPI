@@ -56,6 +56,9 @@ public class BidList {
     private String side;
 
     public BidList(String accountTest, String typeTest, double v) {
+        this.account = accountTest;
+        this.type = typeTest;
+        this.bidQuantity = v;
 
     }
 
