@@ -29,6 +29,8 @@
 			<div class="form-group">
 				<label for="bidQuantity">Bid Quantity</label>
 				<input type="text" th:field="*{bidQuantity}" id="bidQuantity" class="form-control"/>
+				<span class="text-danger" th:if="${#fields.hasErrors('bidQuantity')}" th:errors="*{bidQuantity}"></span>
+
 			</div>
 			<button type="submit" class="btn btn-primary">Add CurvePoint</button>
 			<a href="/bidList/list" class="btn btn-secondary">Cancel</a>

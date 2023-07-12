@@ -39,14 +39,20 @@ public class BidListController {
     }
 
     @PostMapping("/bidList/validate")
-    public String validate(@Valid BidList bid, BindingResult result, Model model) {
+    public String validate(@Valid BidList bidList, BindingResult result, Model model) {
         if(result.hasErrors()){
-            Logger.warn("Bid validation failed");
+            Logger.error("Error in bid validation");
             return "bidList/add";
         }
-        Logger.info("Bid validation successful, saving to database");
-        bidListService.saveBid(bid);
-        return "redirect:/bidList/list";
+        try {
+            bidListService.saveBid(bidList);
+            Logger.info("Bid saved");
+            return "redirect:/bidList/list";
+        } catch (NumberFormatException e) {
+            result.rejectValue("bidQuantity", "dcd", "Bid Quantity must be a number");
+            Logger.error("Error in bid validation: " + e.getMessage());
+            return "bidList/add";
+        }
     }
 
     @GetMapping("/bidList/update/{id}")
